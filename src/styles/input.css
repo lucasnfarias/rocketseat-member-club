@@ -1,0 +1,70 @@
+form {
+  display: flex;
+  flex-direction: row;
+  max-width: 400px;
+  width: 100%;
+
+  border: 2px solid transparent;
+  outline: 1px solid var(--gray-400);
+  background-color: var(--gray-300);
+
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.card-id-input {
+  margin-bottom: 64px;
+}
+
+input:has([disabled]) {
+  opacity: 0.5;
+}
+
+input {
+  flex-grow: 2;
+  width: 100%;
+  background-color: var(--gray-300);
+
+  border: transparent;
+
+  font: var(--text-md);
+  color: var(--gray-700);
+}
+
+form:has(> input:not(:placeholder-shown)) {
+  & button {
+    background-color: var(--gray-700);
+  }
+}
+
+label {
+  display: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+form:focus-within {
+  outline: 2px solid var(--pink);
+  outline-offset: 0.1px;
+  caret-color: var(--pink);
+
+  & button {
+    background-color: var(--gray-700);
+  }
+}
+
+button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: var(--gray-500);
+
+  & img {
+    width: 20px;
+    height: 20px;
+  }
+}

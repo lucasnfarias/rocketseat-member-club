@@ -1,0 +1,38 @@
+.dashboard {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  & section {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  & section:nth-child(1) {
+    flex-grow: 1;
+
+    & .profile-name {
+      flex-grow: 1;
+    }
+
+    & .history {
+      flex-grow: 4;
+    }
+  }
+
+  & section:nth-child(2) {
+    flex-grow: 2;
+
+    & .fidelity {
+      flex-grow: 4;
+    }
+
+    & .gift-progress {
+      flex-grow: 1.5;
+    }
+  }
+}

@@ -1,11 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="src/assets/Logo.png" />
 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Member Club</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <img src="src/assets/Logo.png" alt="Member Club logo" class="logo" />
+
+      <form class="card-id-input">
+        <label for="card-id">ID do cartão</label>
+        <input
+          id="card-id"
+          name="card-id"
+          type="text"
+          placeholder="ID do cartão"
+        />
+        <button>
+          <img src="src/assets/icons/ArrowElbowDownLeft.svg" alt="" />
+        </button>
+      </form>
+
+      <div class="dashboard">
+        <section>
+          <div class="card profile-name">
+            <h3>Natália Miranda</h3>
+            <p>Cliente desde 18/09/2023</p>
+          </div>
+
+          <div class="card history">
+            <header>
+              <h5>HISTÓRICO</h5>
+              <span>7 cortes</span>
+            </header>
+          </div>
+        </section>
+        <section>
+          <div class="card fidelity">
+            <header>
+              <div>
+                <h5>CARTÃO FIDELIDADE</h5>
+                <span>Ao fazer cortes de cabelo, o décimo sai de graça!</span>
+              </div>
+              <div class="user-id-tag">ID: 123-4123-123</div>
+            </header>
+          </div>
+
+          <div class="card gift-progress">
+            <h3>3 cortes restantes</h3>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
 </html>
