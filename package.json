@@ -1,0 +1,36 @@
+{
+  "name": "rocketseat-member-club",
+  "version": "1.0.0",
+  "description": "Desafio prático do módulo 01 do MBA Rocketseat Full-stack",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve",
+    "server": "json-server --watch db.json --port 3333"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasnfarias/rocketseat-member-club.git"
+  },
+  "author": "Lucas Farias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasnfarias/rocketseat-member-club/issues"
+  },
+  "homepage": "https://github.com/lucasnfarias/rocketseat-member-club#readme",
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "babel-loader": "^9.1.3",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.1"
+  }
+}
