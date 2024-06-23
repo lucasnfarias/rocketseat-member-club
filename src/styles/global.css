@@ -28,20 +28,20 @@
 
   /* Text-size styles */
   /* base size: text--md (16px) */
-  --title--md: 1.5rem;
-  --title--sm: 1.12rem;
-  --subtitle--md: 0.88rem;
-  --subtitle--sm: 0.75rem;
-  --text--md: 1rem;
-  --text--sm: 0.88rem;
-  --text--xs: 0.75rem;
+  --title-md: 1.5rem;
+  --title-sm: 1.12rem;
+  --subtitle-md: 0.88rem;
+  --subtitle-sm: 0.75rem;
+  --text-md: 1rem;
+  --text-sm: 0.88rem;
+  --text-xs: 0.75rem;
 
   --ff-base: "Oxygen", sans-serif;
 }
 
 html,
 button {
-  font: 500 1rem/1.5 var(--ff-base);
+  font: 400 1rem/1.4 var(--ff-base);
   background: var(--gray-200);
 }
 
@@ -50,7 +50,6 @@ h3,
 h4,
 h5 {
   font-weight: 700;
-  line-height: 1.4;
 }
 
 h2 {
