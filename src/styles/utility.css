@@ -16,11 +16,30 @@
 .card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
 
   border: 1px solid var(--gray-300);
   border-radius: 16px;
   background-color: var(--gray-100);
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--gray-100);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: 16px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--pink);
+  }
 }

@@ -1,4 +1,5 @@
 import { apiConfig } from "../config/api";
+import { updateHistoryCard } from "./dashboard/history";
 import { updateProfileInfoCard } from "./dashboard/profile-info";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -14,6 +15,7 @@ async function createDashboard() {
     await fetchCardIdInfo({ cardId });
 
   updateProfileInfoCard({ name, picture, clientSince });
+  updateHistoryCard({ appointmentHistory });
 }
 
 async function fetchCardIdInfo({ cardId }) {
