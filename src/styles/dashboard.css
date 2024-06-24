@@ -1,13 +1,12 @@
 #dashboard {
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
   gap: 24px;
-  max-height: 60vh;
+  height: 466px;
 
   & section {
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -15,22 +14,10 @@
 
   & section:nth-child(1) {
     flex-grow: 1;
-
-    & .history {
-      flex-grow: 4;
-    }
   }
 
   & section:nth-child(2) {
     flex-grow: 2;
-
-    & .fidelity {
-      flex-grow: 4;
-    }
-
-    & .gift-progress {
-      flex-grow: 1.5;
-    }
   }
 }
 
@@ -39,7 +26,6 @@
   justify-content: flex-start;
   gap: 1rem;
   padding: 1rem;
-  z-index: -2;
 
   & #profile-pic {
     width: 56px;
@@ -54,6 +40,7 @@
       object-fit: cover;
       border-radius: inherit;
       border: 2px solid white;
+      z-index: 2;
     }
 
     &::before {
@@ -62,7 +49,7 @@
       position: absolute;
       inset: 0;
       border-radius: 10px;
-      z-index: -1;
+      z-index: 1;
     }
   }
 
@@ -83,8 +70,9 @@
 }
 
 .history {
-  padding: 24px;
+  padding: 27px 23px;
   overflow: auto;
+  height: 100%;
 
   & header {
     display: flex;
@@ -167,7 +155,7 @@
 }
 
 .fidelity {
-  padding: 36px 32px 32px;
+  padding: 35px 31px 31px;
 
   & header {
     display: flex;
@@ -231,7 +219,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 20px 32px;
+  padding: 19px 31px;
+  height: 100%;
 
   & header {
     flex-grow: 1;
@@ -261,7 +250,6 @@
 
         & .inner-bar {
           background: var(--gradient-base);
-          width: 70%;
           height: inherit;
           border-radius: inherit;
 

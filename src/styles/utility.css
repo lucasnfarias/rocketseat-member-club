@@ -4,13 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto;
+  margin: 32px auto;
 }
 
 .logo {
   width: 98px;
   height: auto;
-  margin: 32px;
+  margin-bottom: 32px;
 }
 
 .card {
