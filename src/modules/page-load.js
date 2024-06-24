@@ -9,7 +9,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function createDashboard() {
   const query = document.location.search;
 
+  if (!query) return;
+
   const cardId = (String(query).match(/card-id=(\d+-\d+-\d+-\d+)/) || [])[1];
+
+  if (query && !cardId) {
+    alert("O id do cartão não é válido");
+    return;
+  }
 
   const { id, name, picture, clientSince, appointmentHistory, loyaltyCard } =
     await fetchCardIdInfo({ cardId });
@@ -20,6 +27,8 @@ async function createDashboard() {
 
 async function fetchCardIdInfo({ cardId }) {
   try {
+    if (!cardId) throw Error("card_id_not_found");
+
     const response = await fetch(`${apiConfig.baseURL}/clients/${cardId}`);
     const data = await response.json();
 
