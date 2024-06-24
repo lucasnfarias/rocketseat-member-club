@@ -1,6 +1,8 @@
 import { apiConfig } from "../config/api";
-import { updateHistoryCard } from "./dashboard/history";
 import { updateProfileInfoCard } from "./dashboard/profile-info";
+import { updateHistoryCard } from "./dashboard/history";
+import { updateFidelityCard } from "./dashboard/fidelity";
+import { updateGiftProgressCard } from "./dashboard/gift-progress";
 
 document.addEventListener("DOMContentLoaded", async () => {
   createDashboard();
@@ -23,6 +25,8 @@ async function createDashboard() {
 
   updateProfileInfoCard({ name, picture, clientSince });
   updateHistoryCard({ appointmentHistory });
+  updateFidelityCard({ id, loyaltyCard });
+  updateGiftProgressCard({ loyaltyCard });
 }
 
 async function fetchCardIdInfo({ cardId }) {
