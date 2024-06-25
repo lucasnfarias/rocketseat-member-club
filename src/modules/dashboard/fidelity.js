@@ -7,6 +7,8 @@ export async function updateFidelityCard({ id, loyaltyCard }) {
 
   const { totalCuts, cutsRemaining } = loyaltyCard;
 
+  fidelityStamps.innerHTML = "";
+
   for (let i = 0; i < totalCuts; i++) {
     const item = document.createElement("div");
     item.classList.add("box", "stamp-checked");

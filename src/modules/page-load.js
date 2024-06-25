@@ -4,24 +4,52 @@ import { updateHistoryCard } from "./dashboard/history";
 import { updateFidelityCard } from "./dashboard/fidelity";
 import { updateGiftProgressCard } from "./dashboard/gift-progress";
 
+// TODO maybe add a overlay on dashboard asking for id input instead of this empty user
+// TODO don't reload the page use an event handler to get id on input and clean it (we can still check the path if the id is in it)
+
 document.addEventListener("DOMContentLoaded", async () => {
   createDashboard();
 });
 
-async function createDashboard() {
-  const query = document.location.search;
+export async function createDashboard({ cardId } = {}) {
+  console.log({
+    cardId,
+  });
 
-  if (!query) return;
+  if (!cardId) {
+    generateEmptyUser();
+    return;
+  }
 
-  const cardId = (String(query).match(/card-id=(\d+-\d+-\d+-\d+)/) || [])[1];
+  const userData = await fetchCardIdInfo({ cardId });
 
-  if (query && !cardId) {
-    alert("O id do cartão não é válido");
+  if (!userData) {
+    generateEmptyUser();
     return;
   }
 
   const { id, name, picture, clientSince, appointmentHistory, loyaltyCard } =
-    await fetchCardIdInfo({ cardId });
+    userData;
+
+  updateProfileInfoCard({ name, picture, clientSince });
+  updateHistoryCard({ appointmentHistory });
+  updateFidelityCard({ id, loyaltyCard });
+  updateGiftProgressCard({ loyaltyCard });
+}
+
+function generateEmptyUser() {
+  const { id, name, picture, clientSince, appointmentHistory, loyaltyCard } = {
+    id: "000-000-000-000",
+    name: "Usuário padrão",
+    picture: "src/assets/profile-pics/default.png",
+    clientSince: "09/11/1989",
+    appointmentHistory: [{ date: "09/11/1989", time: "10:00" }],
+    loyaltyCard: {
+      totalCuts: 1,
+      cutsNeeded: 10,
+      cutsRemaining: 9,
+    },
+  };
 
   updateProfileInfoCard({ name, picture, clientSince });
   updateHistoryCard({ appointmentHistory });
@@ -39,6 +67,6 @@ async function fetchCardIdInfo({ cardId }) {
     return data;
   } catch (err) {
     console.error(err);
-    alert("Não foi possível buscar os dados desse usuário.");
+    alert(`Usuário com id ${cardId} não foi encontrado.`);
   }
 }

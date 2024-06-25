@@ -5,6 +5,8 @@ const appointmentsList = document.getElementById("appointments");
 export async function updateHistoryCard({ appointmentHistory }) {
   historyCutCount.textContent = `${appointmentHistory.length} cortes`;
 
+  appointmentsList.innerHTML = "";
+
   appointmentHistory.forEach((appointment) => {
     const item = document.createElement("li");
     const dateTime = document.createElement("div");
