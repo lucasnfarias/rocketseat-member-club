@@ -3,6 +3,7 @@ import { updateProfileInfoCard } from "./dashboard/profile-info";
 import { updateHistoryCard } from "./dashboard/history";
 import { updateFidelityCard } from "./dashboard/fidelity";
 import { updateGiftProgressCard } from "./dashboard/gift-progress";
+import { showGiftModal } from "./modal";
 
 // TODO maybe add a overlay on dashboard asking for id input instead of this empty user
 // TODO don't reload the page use an event handler to get id on input and clean it (we can still check the path if the id is in it)
@@ -28,6 +29,8 @@ export async function createDashboard({ cardId } = {}) {
   updateHistoryCard({ appointmentHistory });
   updateFidelityCard({ id, loyaltyCard });
   updateGiftProgressCard({ loyaltyCard });
+
+  if (loyaltyCard.totalCuts === loyaltyCard.cutsNeeded) showGiftModal();
 }
 
 function generateEmptyUser() {
