@@ -15,6 +15,13 @@ cardIdInput.oninput = (e) => {
 form.onsubmit = (event) => {
   event.preventDefault();
 
+  const isValid = /(\d{3})-(\d{3})-(\d{3})-(\d{3})/.test(cardIdInput.value);
+
+  if (!isValid) {
+    alert("Id inválido. Formato aceito: 000-000-000-000");
+    return;
+  }
+
   const cardId = cardIdInput.value;
 
   createDashboard({ cardId });

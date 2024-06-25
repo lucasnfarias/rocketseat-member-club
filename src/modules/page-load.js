@@ -12,10 +12,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 export async function createDashboard({ cardId } = {}) {
-  console.log({
-    cardId,
-  });
-
   if (!cardId) {
     generateEmptyUser();
     return;
@@ -23,10 +19,7 @@ export async function createDashboard({ cardId } = {}) {
 
   const userData = await fetchCardIdInfo({ cardId });
 
-  if (!userData) {
-    generateEmptyUser();
-    return;
-  }
+  if (!userData) return;
 
   const { id, name, picture, clientSince, appointmentHistory, loyaltyCard } =
     userData;
