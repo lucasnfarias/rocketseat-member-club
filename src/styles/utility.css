@@ -43,3 +43,14 @@
     background: var(--pink);
   }
 }
+
+@media (max-width: 1100px) {
+  .container {
+    margin: 0;
+    padding: 20px 12px;
+  }
+
+  .logo {
+    margin-bottom: 20px;
+  }
+}

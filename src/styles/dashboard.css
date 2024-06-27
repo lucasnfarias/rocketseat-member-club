@@ -1,27 +1,18 @@
 #dashboard {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 24px;
+  display: grid;
+  gap: 16px 24px;
   height: 466px;
 
-  & section {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  & section:nth-child(1) {
-    flex-grow: 1;
-  }
-
-  & section:nth-child(2) {
-    flex-grow: 2;
-  }
+  grid-template-areas:
+    "A B B B"
+    "C B B B"
+    "C B B B"
+    "C D D D";
 }
 
 .profile-info {
+  grid-area: A;
   flex-direction: row;
   justify-content: flex-start;
   gap: 1rem;
@@ -72,7 +63,8 @@
 .history {
   padding: 27px 23px;
   overflow: auto;
-  height: 100%;
+  max-height: 100%;
+  grid-area: C;
 
   & header {
     display: flex;
@@ -156,6 +148,7 @@
 
 .fidelity {
   padding: 35px 31px 31px;
+  grid-area: B;
 
   & header {
     display: flex;
@@ -220,7 +213,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 19px 31px;
-  height: 100%;
+  grid-area: D;
 
   & header {
     flex-grow: 1;
@@ -307,5 +300,110 @@
 @keyframes bg-gradient {
   50% {
     background-position: 100% 50%;
+  }
+}
+
+@media (max-width: 1000px) {
+  #dashboard {
+    height: 100%;
+    grid-template-areas:
+      "A"
+      "B"
+      "D"
+      "C";
+  }
+
+  .profile-info {
+    padding: 19px;
+  }
+
+  .fidelity {
+    padding: 19px;
+
+    & header {
+      margin-bottom: 20px;
+
+      div {
+        max-width: 50%;
+        span {
+          font-size: var(--text-xs);
+          color: var(--gray-500);
+        }
+      }
+
+      .user-id-tag {
+        border-radius: 32px;
+        padding: 4px 8px;
+
+        color: var(--gray-500);
+      }
+    }
+
+    & .stamps {
+      gap: 8px;
+
+      .box {
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+        padding: 16px;
+      }
+
+      .stamp-checked img {
+        width: 44px;
+        height: 44px;
+      }
+
+      .stamp-gift img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+
+  .gift-progress {
+    padding: 19px 19px;
+    grid-area: D;
+
+    & header {
+      h2 {
+        font-size: var(--title-sm);
+        margin-bottom: 4px;
+      }
+
+      span {
+        font-size: var(--text-sm);
+      }
+
+      .progress-info {
+        display: flex;
+        align-items: center;
+
+        & .progress-bar {
+          max-width: 75%;
+        }
+      }
+    }
+
+    & .gift {
+      width: 56px;
+      height: 56px;
+
+      border-radius: 50%;
+      background: var(--gray-200);
+      animation: gift-spin 2.5s ease;
+
+      img {
+        position: absolute;
+        top: 0px;
+        width: 48px;
+        height: auto;
+      }
+    }
+  }
+
+  .history {
+    padding: 23px 19px;
+    max-height: 60vh;
   }
 }
